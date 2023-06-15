@@ -49,7 +49,9 @@ public class Vetor {
  *
  **/
   //@ requires ????;
-  //@ ensures  ????;
+  //@ requires B.length > 1;
+  //@ ensures  ????;  
+  //@ ensures  result == ((/num_of int i; i >= 0  && i <= B.length; B[i] == 0) == 2)
   public boolean teste4(int B[]){
 	  
   }
