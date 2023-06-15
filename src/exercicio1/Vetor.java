@@ -1,16 +1,16 @@
 package exercicio1;
 
-/* Considere um vetor "B" com "n" números inteiros. 
- * Considere os índices "j" e "k", onde 0 <= j < k < n. 
- * A notação B[j..k] expressa um segmento do vetor B (mas não pode ser escrita assim em JML).
+/* Considere um vetor "B" com "n" nï¿½meros inteiros. 
+ * Considere os ï¿½ndices "j" e "k", onde 0 <= j < k < n. 
+ * A notaï¿½ï¿½o B[j..k] expressa um segmento do vetor B (mas nï¿½o pode ser escrita assim em JML).
  * 
- * Escreva expressões JML que descrevam precisamente as funcionalidades listadas a seguir.
+ * Escreva expressï¿½es JML que descrevam precisamente as funcionalidades listadas a seguir.
 */
 
 
 public class Vetor {
 
- /**	Todos os elementos no segmento B[j..k] são zero. 
+ /**	Todos os elementos no segmento B[j..k] sï¿½o zero. 
   *
   **/
   //@ requires B.length > 0 && j < k;
@@ -22,7 +22,7 @@ public class Vetor {
  
   
 
-  /** Todos os valores zero de B[0..n-1] estão no segmento B[j..k].
+  /** Todos os valores zero de B[0..n-1] estï¿½o no segmento B[j..k].
    *
    **/
   //@ requires B.length > 0 && j < k;
@@ -32,17 +32,20 @@ public class Vetor {
   }
 
   
-/**	Nem todos os valores zero de B[0..n-1] estão em B[j..k]. 
- * (Especifique isto de duas maneiras, uma usando negação ('!') e outra sem negação. 
+/**	Nem todos os valores zero de B[0..n-1] estï¿½o em B[j..k]. 
+ * (Especifique isto de duas maneiras, uma usando negaï¿½ï¿½o ('!') e outra sem negaï¿½ï¿½o. 
  *
  **/
 //@ requires ????;
+//@ requires B.length > 0 && j < k;
 //@ ensures  ????;
+//@ ensures /result == (/exist int i; 0 <= i && i < j && k < i && i < B.length; B[i] =0)
+//@ ensures /result == (/forall int i; 0 <= i && i < j && k < i && i < B.length; B[i] !=0) 
   public boolean teste3 (int B[], int j, int k){
      return true;
   }
 
-/**	O vetor B[0..n-1] contêm exatamente dois valores zero. 
+/**	O vetor B[0..n-1] contï¿½m exatamente dois valores zero. 
  *
  **/
   //@ requires ????;
@@ -51,21 +54,21 @@ public class Vetor {
 	  
   }
 
-  /** O vetor B[0..n-1] contêm pelo menos dois valores zero.
+  /** O vetor B[0..n-1] contï¿½m pelo menos dois valores zero.
    *
    **/
    //@ requires ????;
    //@ ensures  ????;
   public boolean teste5(int B[]){
 
-  /** O vetor B[0..n-1] contêm no máximo dois valores zero.
+  /** O vetor B[0..n-1] contï¿½m no mï¿½ximo dois valores zero.
    *  
    **/
   //@ requires ????;
   //@ ensures  ????;
 	  public boolean teste6(int B[]){
 
- /** Especifique o método "reverse" que inverte a ordem dos 
+ /** Especifique o mï¿½todo "reverse" que inverte a ordem dos 
   * elementos no vetor B.
   *
   **/
