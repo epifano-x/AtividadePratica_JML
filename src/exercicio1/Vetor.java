@@ -36,9 +36,7 @@ public class Vetor {
  * (Especifique isto de duas maneiras, uma usando nega��o ('!') e outra sem nega��o. 
  *
  **/
-//@ requires ????;
 //@ requires B.length > 0 && j < k;
-//@ ensures  ????;
 //@ ensures /result == (/exist int i; 0 <= i && i < j && k < i && i < B.length; B[i] =0)
 //@ ensures /result == (/forall int i; 0 <= i && i < j && k < i && i < B.length; B[i] !=0) 
   public boolean teste3 (int B[], int j, int k){
@@ -48,9 +46,7 @@ public class Vetor {
 /**	O vetor B[0..n-1] cont�m exatamente dois valores zero. 
  *
  **/
-  //@ requires ????;
   //@ requires B.length > 1;
-  //@ ensures  ????;  
   //@ ensures  result == ((/num_of int i; i >= 0  && i <= B.length; B[i] == 0) == 2)
   public boolean teste4(int B[]){
 	  
@@ -59,23 +55,23 @@ public class Vetor {
   /** O vetor B[0..n-1] cont�m pelo menos dois valores zero.
    *
    **/
-   //@ requires ????;
-   //@ ensures  ????;
+  //@ requires B.length > 1;
+  //@ ensures (\num_of int i; i >= 0 && i < B.length; B[i] == 0) >= 2;
   public boolean teste5(int B[]){
 
   /** O vetor B[0..n-1] cont�m no m�ximo dois valores zero.
    *  
    **/
-  //@ requires ????;
-  //@ ensures  ????;
+  //@ requires B.length >= 0;
+  //@ ensures (\num_of int i; i >= 0 && i < B.length; B[i] == 0) <= 2;
 	  public boolean teste6(int B[]){
 
  /** Especifique o m�todo "reverse" que inverte a ordem dos 
   * elementos no vetor B.
   *
   **/
-  //@ requires ????;
-  //@ ensures  ????;
+  //@ requires B != null;
+  //@ ensures (\forall int i; 0 <= i && i < B.length; B[i] == \old(B[B.length - 1 - i]));
   public static void reverse (int[] B){
 	  
   }
