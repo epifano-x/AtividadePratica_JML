@@ -4,47 +4,45 @@ public class Transition {
 	
 	// atributos
 	
-	// estado corrente da máquina
+	// estado corrente da mÃ¡quina
 	private String state;
-	// símbolo sob a cabeça de leitura da máquina 
-	private char   symbol;
-	// estado resultante da transição
+	// sÃ­mbolo sob a cabeÃ§a de leitura da mÃ¡quina 
+	private char symbol;
+	// estado resultante da transiÃ§Ã£o
 	private String targetState;
-	// simbolo a ser gravado na fita
-	private char   symbolGravado;
+	// sÃ­mbolo a ser gravado na fita
+	private char symbolGravado;
 		
-	// movimentação da cabeça de leitura (D para direita e E para esquerda)
-    private char   moviment;
+	// movimentaÃ§Ã£o da cabeÃ§a de leitura (D para direita e E para esquerda)
+    private char moviment;
 
+    //@ public invariant state != null;
+    //@ public invariant targetState != null;
     
     public Transition(String cs, char s, String ts, char m){
-    	currentState = cs;
-    	symbol       = s;
-    	targetState  = ts;
-    	moviment     = m;
+    	state = cs;
+    	symbol = s;
+    	targetState = ts;
+    	moviment = m;
     }
 
-
+    //@ ensures \result != null;
 	public String getCurrentState() {
-		return currentState;
+		return state;
 	}
 
-
+	//@ ensures \result == symbol;
 	public char /*@ pure @*/ getSymbol() {
 		return symbol;
 	}
 
-
+	//@ ensures \result != null;
 	public String getTargetState() {
 		return targetState;
 	}
 
-
+	//@ ensures \result == moviment;
 	public char getMoviment() {
 		return moviment;
 	}
-	
-    
-    
-
 }
