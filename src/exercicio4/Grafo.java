@@ -9,92 +9,80 @@ public class Grafo {
 	// invariantes de classe
 	// *********************
 	
-	// O grafo deve ter pelo menos um v�rtice
-	//@ invariant .........;
+	// O grafo deve ter pelo menos um vértice
+	//@ invariant vertices.length > 0;
 	
 	
 	/**
-     * Adicionar novo v�rtice 
+     * Adicionar novo vértice 
      */
-    //@ requires true;
-    //@ ensures  ????;
+    //@ requires vertice != null;
+    //@ ensures vertices[vertices.length-1] == vertice;
 	public void novoVertice(Vertice vertice){
-		
+		// Implementação do método
 	}
 	
 	/**
      * Adicionar nova aresta 
      */
-    //@ requires ????;
-    //@ ensures  ????;
+    //@ requires vOrigem != null && vDestino != null;
+    //@ ensures arestas[arestas.length-1].vOrigem == vOrigem && arestas[arestas.length-1].vDestino == vDestino;
 	public void novaAresta (Vertice vOrigem, Vertice vDestino){
-		
+		// Implementação do método
 	}
 
 	
 	/**
-     * Remove um vertice do grafo. Entretanto, o v�rtice s� poder� ser
-     * removido se n�o houver arestas incidindo nele ou partindo dele. 
+     * Remove um vértice do grafo. Entretanto, o vértice só poderá ser
+     * removido se não houver arestas incidindo nele ou partindo dele. 
      */
-    //@ requires ????;
-    //@ ensures  ????;
+    //@ requires vertice != null;
+    //@ ensures \result == true && (\forall int i; i >= 0 && i < arestas.length; !arestas[i].vOrigem.equals(vertice) && !arestas[i].vDestino.equals(vertice));
 	public boolean removerVertice (Vertice vertice){
+		// Implementação do método
 		return true;
 	}
 
 	/**
-     * Remove um vertice do grafo e tamb�m as arestas relacionadas a ele. 
+     * Remove um vértice do grafo e também as arestas relacionadas a ele. 
      */
-    //@ requires ????;
-    //@ ensures  ????;
+    //@ requires vertice != null;
+    //@ ensures (\forall int i; i >= 0 && i < arestas.length; !arestas[i].vOrigem.equals(vertice) && !arestas[i].vDestino.equals(vertice));
 	public void removerVerticeComArestas (Vertice vertice){
-		
+		// Implementação do método
 	}
 	
 	
 	/**
-     * Verifica se existe um caminho entre dois v�rtices  
+     * Verifica se existe um caminho entre dois vértices  
      */
-    //@ measured_by (arestas.length());
-	//@ requires ????;
-    //@ ensures  \result == (\exists int i,j;
-	
-	//@                              arestas[i].vOrigem.equals(vOrigem) && 
-	//@                              arestas[j].vDestino.equals(vDestino) &&
-	//@                              i>=0 && i<arestas.length && j>=0 && j<arestas.length;	
-	
-	//@                              existeCaminho(arestas[i].vDestino, arestas[j].vOrigem) ||
-	//@                              arestas[i].vDestino.equals(arestas[j].vOrigem));
-	
+    //@ measured_by arestas.length;
+	//@ requires vOrigem != null && vDestino != null;
+    //@ ensures \result == (\exists int i,j; i >= 0 && i < arestas.length && j >= 0 && j < arestas.length; arestas[i].vOrigem.equals(vOrigem) && arestas[j].vDestino.equals(vDestino) && (existeCaminho(arestas[i].vDestino, arestas[j].vOrigem) || arestas[i].vDestino.equals(arestas[j].vOrigem)));
 	public /*@ pure @*/ boolean existeCaminho (Vertice vOrigem, Vertice vDestino){
+		// Implementação do método
 		return true;
 	}
 
 
 	/**
-     * Retorna o caminho(sequencia de v�rtices) entre dois v�rtices.  
+     * Retorna o caminho (sequência de vértices) entre dois vértices.  
      */
-    //@ requires ????;
-    //@ ensures  existeCaminho(vOrigem, vDestino) ==> 
-	//@               (\forall int i; 
-	//@                        i>=0 && i<result.length-1; 
-	//@                        \result[0]        == vOrigem  && 
-	//@                        \result[length-1] == vDestino &&
-	//@                         (\exists int j; j>=0 && j<arestas.length;
-	//@                                    arestas[j].vOrigem  == \result[i] &&
-	//@                                    arestas[j].vDestino == \result[i+1])));
-	
+    //@ requires vOrigem != null && vDestino != null && existeCaminho(vOrigem, vDestino);
+    //@ ensures \result[0] == vOrigem && \result[\result.length-1] == vDestino && (\exists int j; j >= 0 && j < arestas.length; arestas[j].vOrigem == \result[i] && arestas[j].vDestino == \result[i+1]);
 	public /*@ pure @*/ Vertice[] caminho (Vertice vOrigem, Vertice vDestino){
+		// Implementação do método
 		return null;
 	}
 
 	
 	/**
-     * Verifica se um dado grafo � subgrafo  
+     * Verifica se um dado grafo é subgrafo  
      */
-    //@ requires ????;
-    //@ ensures  ????;
+    //@ requires subgrafo != null;
+    //@ ensures \result == true;
 	public boolean subGrafo (Grafo subgrafo){
+		// Implementação do método
 		return true;
 	}
 

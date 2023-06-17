@@ -6,4 +6,8 @@ public class Aresta {
 	Vertice vDestino;
 	float   peso;
 
+	//@ invariant vOrigem != null;
+	//@ invariant vDestino != null;
+	//@ invariant peso >= 0.0;
+
 }
